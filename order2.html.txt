@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Surprise for Spandhana ❤️</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  color: #96365f;
+  text-align: center;
+  background: linear-gradient(135deg, #fff0f6, #ffd9e9, #fff8fb);
+  overflow-x: hidden;
+}
+
+.screen {
+  display: none;
+  min-height: 100vh;
+  padding: 25px 15px 40px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.screen.active { display: flex; }
+
+h1 { font-size: clamp(28px, 6vw, 42px); }
+h2 { font-size: clamp(23px, 5vw, 32px); }
+p { font-size: 18px; line-height: 1.65; }
+
+button {
+  background: #ed78a9;
+  color: white;
+  border: 0;
+  border-radius: 30px;
+  padding: 14px 23px;
+  margin: 10px 5px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 5px 14px #ce609333;
+}
+
+input {
+  width: min(300px, 90%);
+  padding: 14px;
+  border: 2px solid #f4a5c5;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 17px;
+  margin: 12px;
+  background: #fffafd;
+  color: #863052;
+}
+
+.card {
+  width: min(440px, 96%);
+  padding: 24px 18px;
+  border-radius: 25px;
+  background: #ffffffed;
+  box-shadow: 0 8px 30px #d76b9c30;
+  border: 1px solid #ffd0e3;
+}
+
+.mouse {
+  font-size: 115px;
+  animation: dance .45s infinite alternate;
+}
+
+@keyframes dance {
+  from { transform: rotate(-15deg) translateY(0); }
+  to { transform: rotate(15deg) translateY(-12px); }
+}
+
+.big-heart {
+  font-size: clamp(110px, 28vw, 175px);
+  cursor: pointer;
+  animation: heartbeat 1s infinite;
+  filter: drop-shadow(0 10px 15px #f5a0c3);
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.12); }
+}
+
+.flower {
+  font-size: 55px;
+  animation: bloom 1.5s infinite alternate;
+}
+
+@keyframes bloom {
+  from { transform: scale(.85); }
+  to { transform: scale(1.1); }
+}
+
+.photo {
+  width: 100%;
+  max-width: 340px;
+  max-height: 55vh;
+  object-fit: contain;
+  border-radius: 20px;
+  margin: 15px auto;
+  display: block;
+  box-shadow: 0 7px 20px #ba527d30;
+}
+
+.butterfly {
+  font-size: 115px;
+  cursor: pointer;
+  animation: fly 1.3s infinite alternate;
+}
+
+@keyframes fly {
+  from { transform: translateX(-10px) rotate(-8deg); }
+  to { transform: translateX(10px) rotate(8deg); }
+}
+
+.gift {
+  display: inline-block;
+  font-size: 42px;
+  margin: 8px;
+  animation: float 1.8s infinite alternate;
+}
+
+@keyframes float {
+  to { transform: translateY(-8px); }
+}
+
+.floating {
+  position: fixed;
+  bottom: -60px;
+  pointer-events: none;
+  z-index: 50;
+  animation: rise 5s linear forwards;
+}
+
+@keyframes rise {
+  to { transform: translateY(-115vh) rotate(35deg); opacity: 0; }
+}
+
+#feedback, #nameFeedback {
+  font-weight: bold;
+  min-height: 28px;
+  color: #b63c77;
+}
+
+#songMessage {
+  display: none;
+  position: fixed;
+  z-index: 60;
+  bottom: 12px;
+  left: 4%;
+  width: 92%;
+  padding: 13px;
+  border-radius: 18px;
+  background: #fff0f8f2;
+  box-shadow: 0 4px 20px #b64b7c30;
+  font-weight: bold;
+}
+
+.small { font-size: 14px; }
+
+</style>
+</head>
+
+<body>
+
+<audio id="music" preload="auto">
+  <source src="Order2.mpeg" type="audio/mpeg">
+</audio>
+
+<!-- 1. MOUSE AND PASSWORD -->
+<section class="screen active" id="s1">
+  <div class="mouse">🐭</div>
+  <h1>Hey Dharani! 💗</h1>
+  <p>Your special surprise is waiting for you!</p>
+  <p>🔐 Enter your secret password</p>
+
+  <input id="password" type="password"
+         placeholder="Enter password" autocomplete="off">
+
+  <button onclick="checkPassword()">Open My Surprise 💕</button>
+  <p id="feedback"></p>
+  <p class="small">Made with love, just for you 🌸</p>
+</section>
+
+<!-- 2. BABY PINK HEART -->
+<section class="screen" id="s2">
+  <h1>A Little Love for You 💗</h1>
+  <div class="big-heart" onclick="showScreen('s3')">💗</div>
+  <p>Tap the heart to open your first surprise.</p>
+</section>
+
+<!-- 3. FIRST PHOTO -->
+<section class="screen" id="s3">
+  <div class="card">
+    <div class="flower">🌸💗🌸</div>
+    <h2>Your First Surprise</h2>
+
+    <img class="photo" src="order2 image1.jpeg"
+         alt="First surprise photo">
+
+    <p>Some people make life more beautiful simply by being in it.
+       May your days be filled with happiness, smiles, and lovely memories. ❤️</p>
+
+    <button onclick="showScreen('s4')">Next Surprise 💌</button>
+  </div>
+</section>
+
+<!-- 4. ENTER DHARANI -->
+<section class="screen" id="s4">
+  <div class="card">
+    <div style="font-size:75px">💌</div>
+    <h2>A Card Just for You</h2>
+    <p>Can you guess the special name this surprise is made for? 😊</p>
+
+    <input id="friendName" type="text" placeholder="Enter the name">
+
+    <button onclick="checkName()">Open My Card 💗</button>
+    <p id="nameFeedback"></p>
+  </div>
+</section>
+
+<!-- 5. ROSES, BALLOONS, FRIENDSHIP -->
+<section class="screen" id="s5">
+  <div class="card">
+    <div style="font-size:45px">🌹🌹🌹</div>
+    <h2>For You, Dharani ❤️</h2>
+    <div style="font-size:38px">🎈💗🎈💗🎈</div>
+
+    <img class="photo" src="Order2image2.jpeg"
+         alt="Second surprise photo">
+
+    <p>Friendship is one of life's sweetest gifts. 🌸</p>
+    <p>Thank you for being a special part of this journey.
+       May our friendship always bring laughter, trust,
+       beautiful memories, and endless happiness. 💕</p>
+
+    <button onclick="showScreen('s6')">Open Another Card 🎁</button>
+  </div>
+</section>
+
+<!-- 6. ALL THE BEST -->
+<section class="screen" id="s6">
+  <div class="card">
+    <div class="flower">💐✨💐</div>
+    <h1>ALL THE BEST! 🌟</h1>
+
+    <p>May every dream you have come true.</p>
+    <p>May you find success in every new beginning,
+       strength in every challenge, and happiness
+       in every little moment. ❤️</p>
+    <p>Keep shining, Dharani! You deserve the best. 🌷</p>
+
+    <button onclick="showScreen('s7')">One More Surprise 🦋</button>
+  </div>
+</section>
+
+<!-- 7. BUTTERFLY -->
+<section class="screen" id="s7">
+  <h1>A Butterfly Has a Secret 🦋</h1>
+  <div class="butterfly" onclick="showScreen('s8')">🦋</div>
+  <p>Tap the butterfly to reveal your next surprise!</p>
+</section>
+
+<!-- 8. THIRD PHOTO -->
+<section class="screen" id="s8">
+  <div class="card">
+    <h2>A Memory for You 💗</h2>
+
+    <img class="photo" src="order2image3.jpeg"
+         alt="Third surprise photo">
+
+    <p>Never stop smiling, dreaming, or believing in yourself.
+       Beautiful things are waiting for you. 🌸</p>
+
+    <button onclick="showScreen('s9')">See Your Gifts 🎁</button>
+  </div>
+</section>
+
+<!-- 9. FINAL GIFTS -->
+<section class="screen" id="s9">
+  <div class="card">
+    <div class="flower">🎁💗🎁</div>
+    <h1>Our Surprise Gifts 💝</h1>
+    <p>A few little gifts, chosen to bring you a smile.</p>
+
+    <div>
+      <span class="gift">💎</span>
+      <span class="gift">📿</span>
+      <span class="gift">💖</span>
+      <span class="gift">🎀</span>
+    </div>
+
+    <p>✨ Earrings</p>
+    <p>✨ A beautiful chain</p>
+    <p>✨ A bracelet</p>
+    <p>✨ A pendant 💗</p>
+
+    <h2>Be Happy Forever! 🌷</h2>
+    <p>May your life always be full of love, peace,
+       success, and beautiful surprises.</p>
+
+    <h2>Your Special Friend ❤️</h2>
+    <button onclick="closeSurprise()">Close 💗</button>
+  </div>
+</section>
+
+<div id="songMessage"></div>
+
+<script>
+const music = document.getElementById("music");
+let effectsStarted = false;
+let lastMessage = "";
+
+function showScreen(id) {
+  document.querySelectorAll(".screen").forEach(screen => {
+    screen.classList.remove("active");
+  });
+
+  document.getElementById(id).classList.add("active");
+  bloomHearts();
+}
+
+function checkPassword() {
+  const value = document.getElementById("password").value;
+  const feedback = document.getElementById("feedback");
+
+  if (value === "123456") {
+    feedback.textContent = "Password correct! 💗";
+
+    // Start music from the beginning after her tap.
+    music.currentTime = 0;
+    music.play().then(() => {
+      startTimedEffects();
+    }).catch(() => {
+      feedback.textContent =
+        "Your surprise is opening! Tap Play if music doesn't start.";
+    });
+
+    showScreen("s2");
+  } else {
+    feedback.textContent = "Wrong password! Try again! 🐭💃";
+    const mouse = document.querySelector("#s1 .mouse");
+    mouse.style.animation = "none";
+    void mouse.offsetWidth;
+    mouse.style.animation = "dance .15s infinite alternate";
+    bloomHearts();
+  }
+}
+
+document.getElementById("password").addEventListener("keydown", event => {
+  if (event.key === "Enter") checkPassword();
+});
+
+function checkName() {
+  const value = document.getElementById("friendName").value.trim();
+  const feedback = document.getElementById("nameFeedback");
+
+  if (value.toLowerCase() === "dharani") {
+    feedback.textContent = "Yes, Dharani! This surprise is for you! 💕";
+    setTimeout(() => showScreen("s5"), 700);
+  } else {
+    feedback.textContent = "Try again! Think of the special name 😊";
+  }
+}
+
+function bloomHearts() {
+  const symbols = ["💗", "🌸", "💕", "🌹", "✨", "🎈"];
+
+  for (let i = 0; i < 12; i++) {
+    const item = document.createElement("div");
+    item.className = "floating";
+    item.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    item.style.left = Math.random() * 100 + "vw";
+    item.style.fontSize = (20 + Math.random() * 25) + "px";
+    item.style.animationDuration = (3 + Math.random() * 3) + "s";
+
+    document.body.appendChild(item);
+    setTimeout(() => item.remove(), 6500);
+  }
+}
+
+// Special messages during your chosen song timings.
+// 2:01–2:31 and 3:45–4:50.
+// Music keeps playing while the messages appear.
+function startTimedEffects() {
+  if (effectsStarted) return;
+  effectsStarted = true;
+
+  const messages = [
+    {
+      start: 121,
+      end: 151,
+      text: "🌹 A beautiful friendship, precious memories, and lots of love 💗"
+    },
+    {
+      start: 225,
+      end: 290,
+      text: "💝 Keep smiling and be happy forever — Your Special Friend ❤️"
+    }
+  ];
+
+  function updateMessage() {
+    const currentTime = music.currentTime;
+    const active = messages.find(item =>
+      currentTime >= item.start && currentTime < item.end
+    );
+
+    const box = document.getElementById("songMessage");
+    box.textContent = active ? active.text : "";
+    box.style.display = active ? "block" : "none";
+
+    // Floating effects at the beginning of each special section.
+    if (currentTime >= 121 && currentTime < 123 && lastMessage !== "first") {
+      bloomHearts();
+      lastMessage = "first";
+    }
+
+    if (currentTime >= 225 && currentTime < 227 && lastMessage !== "second") {
+      bloomHearts();
+      lastMessage = "second";
+    }
+  }
+
+  music.addEventListener("timeupdate", updateMessage);
+
+  music.addEventListener("ended", () => {
+    const box = document.getElementById("songMessage");
+    box.textContent = "💗 Be happy forever — Your Special Friend ❤️";
+    box.style.display = "block";
+  });
+}
+
+function closeSurprise() {
+  music.pause();
+  music.currentTime = 0;
+  effectsStarted = false;
+  lastMessage = "";
+
+  document.getElementById("songMessage").style.display = "none";
+  document.getElementById("password").value = "";
+  document.getElementById("feedback").textContent = "";
+
+  showScreen("s1");
+}
+</script>
+
+</body>
+</html>
