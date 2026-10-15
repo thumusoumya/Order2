@@ -1,482 +1,508 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Spandana ❤️</title>
-
-<style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  min-height: 100vh;
-  overflow-x: hidden;
-  font-family: Georgia, "Times New Roman", serif;
-  color: #8c2856;
-  text-align: center;
-  background:
-    radial-gradient(circle at 15% 20%, #fff 0, transparent 30%),
-    radial-gradient(circle at 85% 75%, #ffc6df 0, transparent 35%),
-    linear-gradient(135deg, #fff5fa, #f9c7de, #fff0f7);
-}
-
-.screen {
-  display: none;
-  min-height: 100vh;
-  padding: 35px 18px 50px;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.screen.active {
-  display: flex;
-  animation: cinematicIn 1s ease both;
-}
-
-@keyframes cinematicIn {
-  from { opacity: 0; transform: translateY(20px) scale(.98); filter: blur(4px); }
-  to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
-}
-
-h1 {
-  font-size: clamp(34px, 7vw, 58px);
-  line-height: 1.2;
-  margin: 18px 0;
-  text-shadow: 0 3px 25px #ff8fbc55;
-}
-
-h2 { font-size: clamp(24px, 5vw, 35px); margin: 15px 0; }
-
-p {
-  font-size: 18px;
-  line-height: 1.8;
-  max-width: 650px;
-  margin: 12px auto;
-}
-
-button {
-  background: linear-gradient(135deg, #ff8db9, #d94d8b);
-  color: white;
-  border: 1px solid #ffffff80;
-  border-radius: 40px;
-  padding: 14px 25px;
-  margin: 12px 5px;
-  font: 16px Georgia, serif;
-  cursor: pointer;
-  box-shadow: 0 8px 25px #bd477d30;
-  transition: transform .3s, box-shadow .3s;
-}
-
-button:hover { transform: translateY(-3px); }
-
-input {
-  width: min(330px, 90%);
-  padding: 15px;
-  margin: 12px;
-  text-align: center;
-  border: 1px solid #e99aba;
-  border-radius: 15px;
-  font-size: 17px;
-  background: #ffffffdb;
-  color: #8c2856;
-}
-
-.card {
-  width: min(460px, 96%);
-  padding: 26px 20px;
-  border: 1px solid #ffffffd9;
-  border-radius: 26px;
-  background: #ffffffc9;
-  box-shadow: 0 15px 45px #a7386b20;
-  backdrop-filter: blur(10px);
-}
-
-.cinematic-mark {
-  width: 150px;
-  height: 150px;
-  display: grid;
-  place-items: center;
-  margin: 5px auto 20px;
-  border-radius: 50%;
-  border: 1px solid #ffffffd9;
-  background: radial-gradient(circle, #fff, #ffd6e7 55%, #f7a6c8);
-  box-shadow: 0 0 35px #ff91bd75, 0 0 85px #ff91bd40;
-  animation: glow 2.5s infinite alternate;
-  font-size: 65px;
-}
-
-@keyframes glow {
-  from { box-shadow: 0 0 25px #ff91bd55, 0 0 50px #ff91bd25; transform: scale(.97); }
-  to { box-shadow: 0 0 45px #ff91bd95, 0 0 95px #ff91bd50; transform: scale(1.04); }
-}
-
-.eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  font-size: 12px;
-  color: #b34b7b;
-}
-
-.name-highlight { color: #d43e83; font-style: italic; }
-
-.photo {
-  width: 100%;
-  max-width: 340px;
-  max-height: 55vh;
-  object-fit: contain;
-  display: block;
-  margin: 18px auto;
-  border-radius: 18px;
-  box-shadow: 0 12px 35px #92325b25;
-}
-
-.floating {
-  position: fixed;
-  bottom: -60px;
-  z-index: 100;
-  pointer-events: none;
-  animation: floatUp 5s ease-out forwards;
-}
-
-@keyframes floatUp {
-  0% { opacity: 0; transform: translateY(0) scale(.2); }
-  20% { opacity: 1; transform: translateY(-20vh) scale(1); }
-  70% { opacity: .9; transform: translateY(-75vh) scale(1.2); }
-  100% { opacity: 0; transform: translateY(-115vh) scale(.7) rotate(20deg); }
-}
-
-.love-card {
-  width: min(440px, 95%);
-  padding: 25px;
-  margin: 10px auto;
-  background: #ffffffdf;
-  border: 1px solid #f6c4d9;
-  border-radius: 22px;
-  line-height: 1.9;
-  box-shadow: 0 8px 30px #a7386b14;
-}
-
-#songMessage {
-  display: none;
-  position: fixed;
-  z-index: 150;
-  bottom: 12px;
-  left: 4%;
-  width: 92%;
-  padding: 16px;
-  border: 1px solid white;
-  border-radius: 18px;
-  background: #fff4f9f5;
-  box-shadow: 0 8px 30px #9c2f6525;
-  font-weight: bold;
-  animation: cinematicIn .8s ease;
-}
-
-.feedback { min-height: 25px; font-weight: bold; }
-.small { font-size: 14px; opacity: .8; }
-
-@media (max-width: 480px) {
-  .screen { padding: 25px 14px 40px; }
-  p { font-size: 17px; }
-  .cinematic-mark { width: 125px; height: 125px; font-size: 55px; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Spandana ❤️</title>
+  
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-family: Georgia, "Times New Roman", serif;
+      color: #8c2856;
+      text-align: center;
+      background:
+      radial-gradient(circle at 15% 20%, #fff 0, transparent 30%),
+      radial-gradient(circle at 85% 75%, #ffc6df 0, transparent 35%),
+      linear-gradient(135deg, #fff5fa, #f9c7de, #fff0f7);
+    }
+    
+    .screen {
+      display: none;
+      min-height: 100vh;
+      padding: 35px 18px 50px;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    
+    .screen.active {
+      display: flex;
+      animation: cinematicIn 1s ease both;
+    }
+    
+    @keyframes cinematicIn {
+      from { opacity: 0; transform: translateY(20px) scale(.98); filter: blur(4px); }
+      to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+    }
+    
+    h1 {
+      font-size: clamp(34px, 7vw, 58px);
+      line-height: 1.2;
+      margin: 18px 0;
+      text-shadow: 0 3px 25px #ff8fbc55;
+    }
+    
+    h2 { font-size: clamp(24px, 5vw, 35px); margin: 15px 0; }
+    
+    p {
+      font-size: 18px;
+      line-height: 1.8;
+      max-width: 650px;
+      margin: 12px auto;
+    }
+    
+    button {
+      background: linear-gradient(135deg, #ff8db9, #d94d8b);
+      color: white;
+      border: 1px solid #ffffff80;
+      border-radius: 40px;
+      padding: 14px 25px;
+      margin: 12px 5px;
+      font: 16px Georgia, serif;
+      cursor: pointer;
+      box-shadow: 0 8px 25px #bd477d30;
+      transition: transform .3s, box-shadow .3s;
+    }
+    
+    button:hover { transform: translateY(-3px); }
+    
+    input {
+      width: min(330px, 90%);
+      padding: 15px;
+      margin: 12px;
+      text-align: center;
+      border: 1px solid #e99aba;
+      border-radius: 15px;
+      font-size: 17px;
+      background: #ffffffdb;
+      color: #8c2856;
+    }
+    
+    .card {
+      width: min(460px, 96%);
+      padding: 26px 20px;
+      border: 1px solid #ffffffd9;
+      border-radius: 26px;
+      background: #ffffffc9;
+      box-shadow: 0 15px 45px #a7386b20;
+      backdrop-filter: blur(10px);
+    }
+    
+    .cinematic-mark {
+      width: 150px;
+      height: 150px;
+      display: grid;
+      place-items: center;
+      margin: 5px auto 20px;
+      border-radius: 50%;
+      border: 1px solid #ffffffd9;
+      background: radial-gradient(circle, #fff, #ffd6e7 55%, #f7a6c8);
+      box-shadow: 0 0 35px #ff91bd75, 0 0 85px #ff91bd40;
+      animation: glow 2.5s infinite alternate;
+      font-size: 65px;
+    }
+    
+    @keyframes glow {
+      from { box-shadow: 0 0 25px #ff91bd55, 0 0 50px #ff91bd25; transform: scale(.97); }
+      to { box-shadow: 0 0 45px #ff91bd95, 0 0 95px #ff91bd50; transform: scale(1.04); }
+    }
+    
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 12px;
+      color: #b34b7b;
+    }
+    
+    .name-highlight { color: #d43e83; font-style: italic; }
+    
+    .photo {
+      width: 100%;
+      max-width: 340px;
+      max-height: 55vh;
+      object-fit: contain;
+      display: block;
+      margin: 18px auto;
+      border-radius: 18px;
+      box-shadow: 0 12px 35px #92325b25;
+    }
+    
+    .floating {
+      position: fixed;
+      bottom: -60px;
+      z-index: 100;
+      pointer-events: none;
+      animation: floatUp 5s ease-out forwards;
+    }
+    
+    @keyframes floatUp {
+      0% { opacity: 0; transform: translateY(0) scale(.2); }
+      20% { opacity: 1; transform: translateY(-20vh) scale(1); }
+      70% { opacity: .9; transform: translateY(-75vh) scale(1.2); }
+      100% { opacity: 0; transform: translateY(-115vh) scale(.7) rotate(20deg); }
+    }
+    
+    .love-card {
+      width: min(440px, 95%);
+      padding: 25px;
+      margin: 10px auto;
+      background: #ffffffdf;
+      border: 1px solid #f6c4d9;
+      border-radius: 22px;
+      line-height: 1.9;
+      box-shadow: 0 8px 30px #a7386b14;
+    }
+    
+    #songMessage {
+      display: none;
+      position: fixed;
+      z-index: 150;
+      bottom: 12px;
+      left: 4%;
+      width: 92%;
+      padding: 16px;
+      border: 1px solid white;
+      border-radius: 18px;
+      background: #fff4f9f5;
+      box-shadow: 0 8px 30px #9c2f6525;
+      font-weight: bold;
+      animation: cinematicIn .8s ease;
+    }
+    
+    .feedback { min-height: 25px; font-weight: bold; }
+    .small { font-size: 14px; opacity: .8; }
+    
+    @media (max-width: 480px) {
+      .screen { padding: 25px 14px 40px; }
+      p { font-size: 17px; }
+      .cinematic-mark { width: 125px; height: 125px; font-size: 55px; }
+    }
+  </style>
 </head>
 
 <body>
-
-<audio id="music" preload="auto">
-  <source src="Order2.mpeg.mpeg" type="audio/mpeg">
-</audio>
-
-<!-- 1. CINEMATIC OPENING -->
-<section class="screen active" id="s1">
-  <p class="eyebrow">A little moment made with love</p>
-  <div class="cinematic-mark">♡</div>
-  <h1>Hey, <span class="name-highlight">Spandana</span></h1>
-  <p>Some surprises are more than gifts. They are little moments made to stay in the heart.</p>
-  <p>This one is especially for you.</p>
-  <button onclick="showScreen('s2')">Enter Your Surprise</button>
-  <p class="small">A little world created just for Spandana</p>
-</section>
-
-<!-- 2. PASSWORD -->
-<section class="screen" id="s2">
-  <div class="cinematic-mark">♡</div>
-  <p class="eyebrow">Just one little secret</p>
-  <h1>Welcome, Spandana</h1>
-  <p>Enter the secret password to discover your surprise.</p>
-  <input id="password" type="password" placeholder="Enter password" autocomplete="off">
-  <button onclick="checkPassword()">Unlock My Surprise</button>
-  <p id="feedback" class="feedback"></p>
-</section>
-
-<!-- 3. HEART -->
-<section class="screen" id="s3">
-  <p class="eyebrow">Chapter one</p>
-  <h1>A Little Love for You</h1>
-  <div class="cinematic-mark" style="cursor:pointer" onclick="showScreen('s4')">♡</div>
-  <p>Every beautiful story begins with one little moment.</p>
-  <button onclick="showScreen('s4')">Discover Your First Memory</button>
-</section>
-
-<!-- 4. FIRST PHOTO -->
-<section class="screen" id="s4">
-  <div class="card">
-    <p class="eyebrow">A memory to keep</p>
-    <h2>For You, Spandana</h2>
-    <img class="photo" src="order2 image1.jpeg" alt="First surprise photo">
-    <p>Some people make ordinary moments feel special. May your life be filled with happiness, smiles, and memories that always make you smile.</p>
-    <button onclick="showScreen('s5')">Continue the Story</button>
-  </div>
-</section>
-
-<!-- 5. NAME CARD -->
-<section class="screen" id="s5">
-  <div class="card">
-    <p class="eyebrow">A card made just for you</p>
-    <h1>One Little Question</h1>
-    <p>Can you guess the special name this surprise is made for?</p>
-    <input id="friendName" type="text" placeholder="Enter the name">
-    <button onclick="checkName()">Reveal Your Card</button>
-    <p id="nameFeedback" class="feedback"></p>
-  </div>
-</section>
-
-<!-- 6. FOR SPANDANA -->
-<section class="screen" id="s6">
-  <div class="card">
-    <p class="eyebrow">Made especially for you</p>
-    <h1>For You, Spandana</h1>
-    <img class="photo" src="Order2image2.jpeg" alt="Second surprise photo">
-    <p>The best gifts are not always the things we hold. Sometimes, they are the memories, care, and happiness we share with someone.</p>
-    <p>May your days bring you reasons to smile, courage to follow your dreams, and beautiful moments to remember.</p>
-    <button onclick="showScreen('s7')">A Wish for You</button>
-  </div>
-</section>
-
-<!-- 7. WISH -->
-<section class="screen" id="s7">
-  <div class="card">
-    <p class="eyebrow">A wish from the heart</p>
-    <div class="cinematic-mark">✧</div>
-    <h1>All the Best, Spandana</h1>
-    <p>May every dream you carry bring you closer to the life you wish for.</p>
-    <p>May you find strength in difficult moments, happiness in little things, and success in every new beginning.</p>
-    <p>You deserve beautiful things in life.</p>
-    <button onclick="showScreen('s8')">One More Memory</button>
-  </div>
-</section>
-
-<!-- 8. THIRD PHOTO -->
-<section class="screen" id="s8">
-  <div class="card">
-    <p class="eyebrow">A moment just for you</p>
-    <h2>Another Memory, Spandana</h2>
-    <img class="photo" src="order2image3.jpeg" alt="Third surprise photo">
-    <p>Keep believing in yourself. Keep growing, keep smiling, and never stop looking forward to beautiful things.</p>
-    <button onclick="showScreen('s9')">Discover Your Gifts</button>
-  </div>
-</section>
-
-<!-- 9. GIFTS -->
-<section class="screen" id="s9">
-  <div class="card">
-    <p class="eyebrow">The final chapter</p>
-    <h1>A Few Little Gifts</h1>
-    <p>Chosen with care, and given with love.</p>
-    <h2>For Spandana</h2>
-    <p>♡ A beautiful pair of earrings</p>
-    <p>♡ A lovely chain</p>
-    <p>♡ A bracelet</p>
-    <p>♡ A pendant</p>
-    <p>May these little gifts remind you that you deserve to feel appreciated and celebrated.</p>
-    <h2>Keep Shining</h2>
-    <p>Wishing you happiness, peace, and success always.</p>
-    <p id="musicStatus">The song will start from 02:03 after you unlock the surprise.</p>
-    <p id="timer">Song position: 02:03</p>
-    <button onclick="closeSurprise()">Close Your Surprise</button>
-  </div>
-</section>
-
-<div id="songMessage"></div>
-
-<script>
-const music = document.getElementById("music");
-const SONG_START = 123; // 2 minutes 3 seconds
-let effectsStarted = false;
-let lastSection = "";
-
-function showScreen(id) {
-  document.querySelectorAll(".screen").forEach(screen => {
-    screen.classList.remove("active");
-  });
-
-  document.getElementById(id).classList.add("active");
-  window.scrollTo({ top: 0, behavior: "smooth" });
-  bloomHearts(12);
-}
-
-function checkPassword() {
-  const value = document.getElementById("password").value;
-  const feedback = document.getElementById("feedback");
-
-  if (value !== "123456") {
-    feedback.textContent = "Not quite! Please try again.";
-    bloomHearts(10);
-    return;
-  }
-startSongFrom203()
-
-  feedback.textContent = "";
-  showScreen("s3");
-  startSongFrom203();
-}
-
-function startSongFrom203() {
-  music.pause();
-
-  const attemptPlayback = () => {
-    try {
-      music.currentTime = SONG_START;
-    } catch (error) {}
-music.play()
-  if (music.readyState >= 1) {
-    attemptPlayback();
-  } else {
-    music.addEventListener("loadedmetadata", attemptPlayback, { once: true });
-    music.load();
-  }
-}
-
-function showAudioPlayer() {
-  if (document.getElementById("musicControls")) return;
-
-  const controls = document.createElement("div");
-  controls.id = "musicControls";
-  controls.innerHTML = '<audio id="fallbackMusic" controls style="width:100%"></audio>';
-
-  document.querySelector("#s9 .card").appendChild(controls);
-
-  const fallback = document.getElementById("fallbackMusic");
-  fallback.src = "Order2.mpeg.mpeg";
-  fallback.addEventListener("loadedmetadata", () => {
-    fallback.currentTime = SONG_START;
-  });
-
-  fallback.addEventListener("play", () => {
-    startTimedEffectsFor(fallback);
-  });
-}
-
-document.getElementById("password").addEventListener("keydown", event => {
-  if (event.key === "Enter") checkPassword();
-});
-
-function checkName() {
-  const value = document.getElementById("friendName").value.trim();
-  const feedback = document.getElementById("nameFeedback");
-
-  if (value.toLowerCase() === "spandana") {
-    feedback.textContent = "Yes! This surprise is made especially for you.";
-    bloomHearts(25);
-    setTimeout(() => showScreen("s6"), 900);
-  } else {
-    feedback.textContent = "Try again. Think of your special name.";
-  }
-}
-
-function bloomHearts(count = 18) {
-  const symbols = ["♡", "♥", "💗", "💖", "💕"];
-
-  for (let i = 0; i < count; i++) {
-    const item = document.createElement("div");
-    item.className = "floating";
-    item.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-    item.style.left = Math.random() * 96 + "vw";
-    item.style.fontSize = (18 + Math.random() * 25) + "px";
-    item.style.animationDuration = (3.5 + Math.random() * 2) + "s";
-    item.style.animationDelay = Math.random() * .8 + "s";
-
-    document.body.appendChild(item);
-    setTimeout(() => item.remove(), 7000);
-  }
-}
-
-function startTimedEffects() {
-  startTimedEffectsFor(music);
-}
-
-function startTimedEffectsFor(audioElement) {
-  if (audioElement.dataset.effectsStarted === "true") return;
-  audioElement.dataset.effectsStarted = "true";
-
-  const messages = [
-    {
-      start: 0,
-      end: 25,
-      text: "For you, Spandana — a little reminder to keep smiling. ♡"
-    },
-    {
-      start: 45,
-      end: 75,
-      text: "May your dreams grow, your heart stay happy, and your days shine. ♡"
-    },
-    {
-      start: 100,
-      end: 140,
-      text: "Keep shining, Spandana. Beautiful things are waiting for you. ♡"
+  <script src="crypto.js"></script>
+  <audio id="music" preload="auto"></audio>
+    <!-- <source src="Order2.mpeg" type="audio/mpeg"> -->
+  
+  <!-- 1. CINEMATIC OPENING -->
+  <section class="screen active" id="s1">
+    <p class="eyebrow">A little moment made with love</p>
+    <div class="cinematic-mark">♡</div>
+    <h1>Hey, <span class="name-highlight">Spandana</span></h1>
+    <p>Some surprises are more than gifts. They are little moments made to stay in the heart.</p>
+    <p>This one is especially for you.</p>
+    <button onclick="showScreen('s2')">Enter Your Surprise</button>
+    <p class="small">A little world created just for Spandana</p>
+  </section>
+  
+  <!-- 2. PASSWORD -->
+  <section class="screen" id="s2">
+    <div class="cinematic-mark">♡</div>
+    <p class="eyebrow">Just one little secret</p>
+    <h1>Welcome, Spandana</h1>
+    <p>Enter the secret password to discover your surprise.</p>
+    <input id="password" type="password" placeholder="Enter password" autocomplete="off">
+    <button onclick="checkPassword()">Unlock My Surprise</button>
+    <p id="feedback" class="feedback"></p>
+  </section>
+  
+  <!-- 3. HEART -->
+  <section class="screen" id="s3">
+    <p class="eyebrow">Chapter one</p>
+    <h1>A Little Love for You</h1>
+    <div class="cinematic-mark" style="cursor:pointer" onclick="showScreen('s4')">♡</div>
+    <p>Every beautiful story begins with one little moment.</p>
+    <button onclick="showScreen('s4')">Discover Your First Memory</button>
+  </section>
+  
+  <!-- 4. FIRST PHOTO -->
+  <section class="screen" id="s4">
+    <div class="card">
+      <p class="eyebrow">A memory to keep</p>
+      <h2>For You, Spandana</h2>
+      <img class="photo" id="image1" alt="First surprise photo">
+      <p>Some people make ordinary moments feel special. May your life be filled with happiness, smiles, and memories that always make you smile.</p>
+      <button onclick="showScreen('s5')">Continue the Story</button>
+    </div>
+  </section>
+  
+  <!-- 5. NAME CARD -->
+  <section class="screen" id="s5">
+    <div class="card">
+      <p class="eyebrow">A card made just for you</p>
+      <h1>One Little Question</h1>
+      <p>Can you guess the special name this surprise is made for?</p>
+      <input id="friendName" type="text" placeholder="Enter the name">
+      <button onclick="checkName()">Reveal Your Card</button>
+      <p id="nameFeedback" class="feedback"></p>
+    </div>
+  </section>
+  
+  <!-- 6. FOR SPANDANA -->
+  <section class="screen" id="s6">
+    <div class="card">
+      <p class="eyebrow">Made especially for you</p>
+      <h1>For You, Spandana</h1>
+      <img class="photo" id="image2" alt="Second surprise photo">
+      <p>The best gifts are not always the things we hold. Sometimes, they are the memories, care, and happiness we share with someone.</p>
+      <p>May your days bring you reasons to smile, courage to follow your dreams, and beautiful moments to remember.</p>
+      <button onclick="showScreen('s7')">A Wish for You</button>
+    </div>
+  </section>
+  
+  <!-- 7. WISH -->
+  <section class="screen" id="s7">
+    <div class="card">
+      <p class="eyebrow">A wish from the heart</p>
+      <div class="cinematic-mark">✧</div>
+      <h1>All the Best, Spandana</h1>
+      <p>May every dream you carry bring you closer to the life you wish for.</p>
+      <p>May you find strength in difficult moments, happiness in little things, and success in every new beginning.</p>
+      <p>You deserve beautiful things in life.</p>
+      <button onclick="showScreen('s8')">One More Memory</button>
+    </div>
+  </section>
+  
+  <!-- 8. THIRD PHOTO -->
+  <section class="screen" id="s8">
+    <div class="card">
+      <p class="eyebrow">A moment just for you</p>
+      <h2>Another Memory, Spandana</h2>
+      <img class="photo" id="image3" alt="Third surprise photo">
+      <p>Keep believing in yourself. Keep growing, keep smiling, and never stop looking forward to beautiful things.</p>
+      <button onclick="showScreen('s9')">Discover Your Gifts</button>
+    </div>
+  </section>
+  
+  <!-- 9. GIFTS -->
+  <section class="screen" id="s9">
+    <div class="card">
+      <p class="eyebrow">The final chapter</p>
+      <h1>A Few Little Gifts</h1>
+      <p>Chosen with care, and given with love.</p>
+      <h2>For Spandana</h2>
+      <p>♡ A beautiful pair of earrings</p>
+      <p>♡ A lovely chain</p>
+      <p>♡ A bracelet</p>
+      <p>♡ A pendant</p>
+      <p>May these little gifts remind you that you deserve to feel appreciated and celebrated.</p>
+      <h2>Keep Shining</h2>
+      <p>Wishing you happiness, peace, and success always.</p>
+      <p id="musicStatus">The song will start from 02:03 after you unlock the surprise.</p>
+      <p id="timer">Song position: 02:03</p>
+      <button onclick="closeSurprise()">Close Your Surprise</button>
+    </div>
+  </section>
+  
+  <div id="songMessage"></div>
+  
+  <script>
+    const music = document.getElementById("music");
+    const SONG_START = 123; // 2 minutes 3 seconds
+    let effectsStarted = false;
+    let lastSection = "";
+    
+    function showScreen(id) {
+      document.querySelectorAll(".screen").forEach(screen => {
+        screen.classList.remove("active");
+      });
+      
+      document.getElementById(id).classList.add("active");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      bloomHearts(12);
     }
-  ];
-
-  audioElement.addEventListener("timeupdate", () => {
-    const time = audioElement.currentTime - SONG_START;
-    const active = messages.find(item => time >= item.start && time < item.end);
-
-    const box = document.getElementById("songMessage");
-    box.textContent = active ? active.text : "";
-    box.style.display = active ? "block" : "none";
-
-    if (time >= 0 && time < 2 && lastSection !== "first") {
-      bloomHearts(20);
-      lastSection = "first";
+    
+    function checkPassword() {
+      const value = document.getElementById("password").value;
+      const feedback = document.getElementById("feedback");
+      
+      if (value !== "123456") {
+        feedback.textContent = "Not quite! Please try again.";
+        bloomHearts(10);
+        return;
+      }
+      feedback.textContent = "";
+      showScreen("s3");
+      startSongFrom203(value);
     }
-    if (time >= 45 && time < 47 && lastSection !== "second") {
-      bloomHearts(20);
-      lastSection = "second";
+    
+    async function startSongFrom203(password) {
+      try {
+        const image1Decrypt = await decryptFile(password, `enc/image1.bin`);
+        document.getElementById("image1").src = URL.createObjectURL(new Blob([image1Decrypt]));
+        const image2Decrypt = await decryptFile(password, `enc/image2.bin`);
+        document.getElementById("image2").src = URL.createObjectURL(new Blob([image2Decrypt]));
+        const image3Decrypt = await decryptFile(password, `enc/image3.bin`);
+        document.getElementById("image3").src = URL.createObjectURL(new Blob([image3Decrypt]));
+        const musicData = await decryptFile(password, "enc/audio.bin");
+        music.src = URL.createObjectURL(new Blob([musicData]));
+        music.pause();
+        
+        // Wait until the browser knows the song's duration and metadata.
+        if (music.readyState < 1) {
+          await new Promise((resolve, reject) => {
+            music.addEventListener("loadedmetadata", resolve, { once: true });
+            music.addEventListener("error", reject, { once: true });
+            music.load();
+          });
+        }
+        
+        // Make sure the song is at least 2 minutes and 3 seconds long.
+        if (music.duration <= SONG_START) {
+          document.getElementById("musicStatus").textContent =
+          "The audio file is too short to start at 02:03.";
+          return;
+        }
+        
+        music.currentTime = SONG_START;
+        await music.play();
+        
+        document.getElementById("musicStatus").textContent =
+        "Now playing from 02:03 ♡";
+        
+        startTimedEffects();
+      } catch (error) {
+        console.error("Music playback failed:", error);
+        
+        document.getElementById("musicStatus").textContent =
+        "Music could not start. Please check the audio file and try again.";
+        
+        showAudioPlayer();
+      }
     }
-    if (time >= 100 && time < 102 && lastSection !== "third") {
-      bloomHearts(20);
-      lastSection = "third";
+    
+    function showAudioPlayer() {
+      if (document.getElementById("musicControls")) return;
+      
+      const controls = document.createElement("div");
+      controls.id = "musicControls";
+      controls.innerHTML = '<audio id="fallbackMusic" controls style="width:100%"></audio>';
+      
+      document.querySelector("#s9 .card").appendChild(controls);
+      
+      const fallback = document.getElementById("fallbackMusic");
+      fallback.src = "Order2.mpeg";
+      fallback.addEventListener("loadedmetadata", () => {
+        fallback.currentTime = SONG_START;
+      });
+      
+      fallback.addEventListener("play", () => {
+        startTimedEffectsFor(fallback);
+      });
     }
-  });
-
-  audioElement.addEventListener("ended", () => {
-    const box = document.getElementById("songMessage");
-    box.textContent = "For you, Spandana. Wishing you happiness always. ♡";
-    box.style.display = "block";
-    bloomHearts(30);
-  });
-}
-
-function closeSurprise() {
-  music.pause();
-  music.currentTime = 0;
-  effectsStarted = false;
-  lastSection = "";
-
-  document.getElementById("songMessage").style.display = "none";
-  document.getElementById("password").value = "";
-  document.getElementById("feedback").textContent = "";
-  document.getElementById("friendName").value = "";
-  document.getElementById("nameFeedback").textContent = "";
-
-  showScreen("s1");
-}
-
-window.addEventListener("load", () => bloomHearts(18));
-</script>
-
+    
+    document.getElementById("password").addEventListener("keydown", event => {
+      if (event.key === "Enter") checkPassword();
+    });
+    
+    function checkName() {
+      const value = document.getElementById("friendName").value.trim();
+      const feedback = document.getElementById("nameFeedback");
+      
+      if (value.toLowerCase() === "spandana") {
+        feedback.textContent = "Yes! This surprise is made especially for you.";
+        bloomHearts(25);
+        setTimeout(() => showScreen("s6"), 900);
+      } else {
+        feedback.textContent = "Try again. Think of your special name.";
+      }
+    }
+    
+    function bloomHearts(count = 18) {
+      const symbols = ["♡", "♥", "💗", "💖", "💕"];
+      
+      for (let i = 0; i < count; i++) {
+        const item = document.createElement("div");
+        item.className = "floating";
+        item.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        item.style.left = Math.random() * 96 + "vw";
+        item.style.fontSize = (18 + Math.random() * 25) + "px";
+        item.style.animationDuration = (3.5 + Math.random() * 2) + "s";
+        item.style.animationDelay = Math.random() * .8 + "s";
+        
+        document.body.appendChild(item);
+        setTimeout(() => item.remove(), 7000);
+      }
+    }
+    
+    function startTimedEffects() {
+      startTimedEffectsFor(music);
+    }
+    
+    function startTimedEffectsFor(audioElement) {
+      if (audioElement.dataset.effectsStarted === "true") return;
+      audioElement.dataset.effectsStarted = "true";
+      
+      const messages = [
+      {
+        start: 0,
+        end: 25,
+        text: "For you, Spandana — a little reminder to keep smiling. ♡"
+      },
+      {
+        start: 45,
+        end: 75,
+        text: "May your dreams grow, your heart stay happy, and your days shine. ♡"
+      },
+      {
+        start: 100,
+        end: 140,
+        text: "Keep shining, Spandana. Beautiful things are waiting for you. ♡"
+      }
+      ];
+      
+      audioElement.addEventListener("timeupdate", () => {
+        const time = audioElement.currentTime - SONG_START;
+        const active = messages.find(item => time >= item.start && time < item.end);
+        
+        const box = document.getElementById("songMessage");
+        box.textContent = active ? active.text : "";
+        box.style.display = active ? "block" : "none";
+        
+        if (time >= 0 && time < 2 && lastSection !== "first") {
+          bloomHearts(20);
+          lastSection = "first";
+        }
+        if (time >= 45 && time < 47 && lastSection !== "second") {
+          bloomHearts(20);
+          lastSection = "second";
+        }
+        if (time >= 100 && time < 102 && lastSection !== "third") {
+          bloomHearts(20);
+          lastSection = "third";
+        }
+      });
+      
+      audioElement.addEventListener("ended", () => {
+        const box = document.getElementById("songMessage");
+        box.textContent = "For you, Spandana. Wishing you happiness always. ♡";
+        box.style.display = "block";
+        bloomHearts(30);
+      });
+    }
+    
+    function closeSurprise() {
+      music.pause();
+      music.currentTime = 0;
+      effectsStarted = false;
+      lastSection = "";
+      
+      document.getElementById("songMessage").style.display = "none";
+      document.getElementById("password").value = "";
+      document.getElementById("feedback").textContent = "";
+      document.getElementById("friendName").value = "";
+      document.getElementById("nameFeedback").textContent = "";
+      
+      showScreen("s1");
+    }
+    
+    window.addEventListener("load", () => bloomHearts(18));
+    
+  </script>
 </body>
 </html>
